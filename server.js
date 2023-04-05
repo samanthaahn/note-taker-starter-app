@@ -14,8 +14,13 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 //Create Express.js routes for defualt '/' 
-app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
-
+app.get('/', (req, res) => 
+res.sendFile(path.join(__dirname,  '/public/index.html'))
+);
+// This takes the user to the notes section of the public folder 
+app.get('/notes', (req, res) => 
+res.sendFile(path.join(__dirname,  '/public/notes.html'))
+);
 
 
 
