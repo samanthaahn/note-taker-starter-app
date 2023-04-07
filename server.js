@@ -2,6 +2,8 @@
 const express = require('express');
 // Import built-in node.js package 'path' to resolve path of files that are located on the server.
 const path = require('path');
+// This requires the write file 
+const fs = require('fs');
 // This specifies which port the express.js will run on. 
 const PORT = 3001; 
 // Initialize an instance of express.js
@@ -27,8 +29,7 @@ res.sendFile(path.join(__dirname,  '/public/notes.html'))
 
 
 
-
-
+// This initializes everything
 app.listen(PORT, () =>
-console.log(`App listening at http://localhost:${PORT}`)
+console.log(`App listening at http://localhost:${PORT} 🤎`)
 );
