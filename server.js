@@ -30,7 +30,24 @@ app.get('/api/notes', (req,rest) => {
 res.sendFile(path.join(__dirname,'/db/db.json'))
 });
 
+app.post('/api/notes', (req,res) => {
 
+    let newNote = req.body;
+    let newID = uniqid();
+
+    newNote.id = newID;
+
+    fs.readFile('./db/db.json', (err, data) => {
+        if(err) throw err;
+        let dbFile = JSON.parse(data);
+        dbFile.push(newNote);
+
+    fs.writeFile('./db/db.json',JSON.stringify(dbFile), (err) => {
+        if(err)throw err;
+        console.log('New note saved!📝')
+    })
+    })
+})
 
 
 
