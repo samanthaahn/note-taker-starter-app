@@ -2,6 +2,8 @@
 const express = require('express');
 // Import built-in node.js package 'path' to resolve path of files that are located on the server.
 const path = require('path');
+// This require the file from the database 
+const db = require('./db/db.json');
 // This requires the write file 
 const fs = require('fs');
 // This specifies which port the express.js will run on. 
@@ -23,6 +25,11 @@ res.sendFile(path.join(__dirname,  '/public/index.html'))
 app.get('/notes', (req, res) => 
 res.sendFile(path.join(__dirname,  '/public/notes.html'))
 );
+
+app.get('/api/notes', (req,rest) => {
+res.sendFile(path.join(__dirname,'/db/db.json'))
+});
+
 
 
 
