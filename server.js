@@ -27,8 +27,6 @@ res.sendFile(path.join(__dirname,  '/public/notes.html'))
 
 
 
-
-
 // This initializes everything
 app.listen(PORT, () =>
 console.log(`App listening at http://localhost:${PORT} 🤎`)

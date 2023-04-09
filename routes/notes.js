@@ -1,8 +1,16 @@
 const notes = require('express').Router();
 
-notes.get('/', (req, rest) => {
+// function readFromFile('./db/db.json'){
+
+// };
+
+// function readAndAppend(newNote, './db/db.json'){
+
+// };
+
+notes.get('/', (req, res) => {
     console.info(  `${req.method} request recieved for notes!`);
-    readFromFile('./db/db.json').then((data) => rest.json(JSON.parse(((data)))));
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(((data)))));
 });
 
 notes.post('/', (req,res) => {
@@ -23,4 +31,4 @@ notes.post('/', (req,res) => {
     }
 });
 
-modeule.exports = notes; 
+module.exports = notes; 
