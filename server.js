@@ -30,6 +30,7 @@ app.get('/api/notes', (req,rest) => {
 res.sendFile(path.join(__dirname,'/db/db.json'))
 });
 
+// This allows for the user to actually save and post their notes to the page
 app.post('/api/notes', (req,res) => {
 
     let newNote = req.body;
@@ -50,6 +51,7 @@ app.post('/api/notes', (req,res) => {
 res.redirect('/notes');
 });
 
+// This takes care of the delete portion of the notes. If you click on the "trash" icon it will delete your note
 app.delete('/api/notes/:id', (req,res) => {
     const noteId = req.params.id;
 
@@ -66,6 +68,7 @@ app.delete('/api/notes/:id', (req,res) => {
     res.redirect('/notes');
 });
 
+// This is a general selector "*"
 app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 });
