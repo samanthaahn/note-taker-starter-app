@@ -2,6 +2,7 @@ const notes = require('express').Router();
 const fs = require('fs');
 const db = require('../db/db.json');
 const path = require('path');
+const uuid = require('../helper/uuid');
 
 
 
@@ -13,16 +14,16 @@ notes.get('/', (req,res) => {
 notes.post('/', (req,res) => {
 
     let newNote = req.body;
-    let newID = uniqid();
+    let newID = uuid();
 
     newNote.id = newID;
 
-    fs.readFile('../db/db.json', (err, data) => {
+    fs.readFile(path.join(__dirname,'../db/db.json'), (err, data) => {
         if(err) throw err;
         let dbFile = JSON.parse(data);
         dbFile.push(newNote);
 
-    fs.writeFile('../db/db.json',JSON.stringify(dbFile), (err) => {
+    fs.writeFile(path.join(__dirname,'../db/db.json'),JSON.stringify(dbFile), (err) => {
         if(err)throw err;
         console.log('New note saved!📝')
     });
@@ -34,12 +35,12 @@ res.redirect('/notes');
 notes.delete('/:id', (req,res) => {
     const noteId = req.params.id;
 
-    fs.readFile('../db/db.json', (err, data) => {
+    fs.readFile(path.join(__dirname,'../db/db.json'), (err, data) => {
         if(err) throw err;
         let dbFile = JSON.parse(data);
         const newDbFile = dbFile.filer(note => note.id !== noteId);
 
-    fs.writeFile('../db/db.json',JSON.stringify(newDbFile),(err) => {
+    fs.writeFile(path.join(__dirname,'../db/db.json'),JSON.stringify(newDbFile),(err) => {
         if(err) throw err;
         console.log('Your note has been deletes!');
     });
