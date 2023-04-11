@@ -32,7 +32,6 @@ app.get('*', (req,res) => {
 });
 
 
-
 // This initializes everything
 app.listen(PORT, () =>
 console.log(`App listening at http://localhost:${PORT} 🤎`)
