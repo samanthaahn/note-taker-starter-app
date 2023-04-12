@@ -10,9 +10,6 @@ This is a notetaker application that allows you to write down all your projects 
 - [Tests](#tests)
 - [Questions](#questions)
 
-## Walkthrough Video 
-https://watch.screencastify.com/v/TWJjzCndCQ6WqsNdJLcq to an external site.
-
 ## Installation
 In order to use this repo, you have to install express and node.js. 
 
