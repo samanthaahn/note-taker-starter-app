@@ -40,7 +40,7 @@ N/A
 ## Questions
 If you have any questions or concerns you can email me at: sammie.bahn@gmail.com
 
-My github can be accessed at: https://github.com/samanthaahn/readme-generator
+My github can be accessed at: https://github.com/samanthaahn
 
 My github username is: samanthaahn
 
